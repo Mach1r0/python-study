@@ -28,7 +28,13 @@ class Rectangle:
         return self.width * self.height
 
     def calculate_perimeter(self):
-        return 2 * (self.width + self.height)
+        p1, p2, p3 = self.points
+        side1 = math.sqrt((p2.x - p1.x) ** 2 + (p2.y - p1.y) ** 2)
+        side2 = math.sqrt((p3.x - p2.x) ** 2 + (p3.y - p2.y) ** 2)
+        side3 = math.sqrt((p1.x - p3.x) ** 2 + (p1.y - p3.y) ** 2)
+        
+        print(f'Side 1: {side1}, Side 2: {side2}, Side 3: {side3}')
+        return side1 + side2 + side3
 
 class Square(Rectangle):
     def __init__(self, top_left, side_length):
